@@ -1,1 +1,1 @@
-# Medium-Automation-of-EDA-for-superstore-dataset
+# Medium
