@@ -1,0 +1,11 @@
+# Pie chart
+division_rat = px.pie(df, names='Rating', values='Rating', hole=0.6, title='Overall Ratings of Products',
+                      color_discrete_sequence=px.colors.qualitative.T10)
+division_rat.update_traces(textfont=dict(color='#fff'))
+division_rat.update_layout(autosize=True, height=200, width=800,
+                           margin=dict(t=80, b=30, l=70, r=40),
+                           plot_bgcolor='#2d3035', paper_bgcolor='#2d3035',
+                           title_font=dict(size=25, color='#a5a7ab', family="Muli, sans-serif"),
+                           font=dict(color='#8a8d93'),
+                           legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+                           )
