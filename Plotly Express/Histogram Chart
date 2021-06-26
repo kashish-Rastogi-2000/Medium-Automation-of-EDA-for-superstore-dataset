@@ -1,0 +1,17 @@
+# ---------------------------CLASSNAME ------------------------------------------
+classname2 = px.histogram(df, x='Department Name',
+                         title='Recommended IND by Class Name', height=250,
+                         color_discrete_sequence=['#03DAC5'],
+                         )
+classname2.update_yaxes(showgrid=False),
+classname2.update_xaxes(categoryorder='total descending')
+classname2.update_traces(hovertemplate=None)
+classname2.update_layout(margin=dict(t=100, b=0, l=70, r=40),
+                        hovermode="x unified",
+                        xaxis_tickangle=360,
+                        xaxis_title=' ', yaxis_title=" ",
+                        plot_bgcolor='#2d3035', paper_bgcolor='#2d3035',
+                        title_font=dict(size=25, color='#a5a7ab', family="Muli, sans-serif"),
+                        font=dict(color='#8a8d93'),
+                        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+                          )
