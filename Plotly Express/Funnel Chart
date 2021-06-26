@@ -1,0 +1,24 @@
+# ------------------------------ DEPARTMENT NAME---------------------------------------
+df_rec = df[df['Recommended IND'] == 'Recommended'][['Recommended IND', 'Department Name']]
+df_rec_dep = df_rec['Department Name'].value_counts().rename_axis('Stage').reset_index(name='Counts')
+df_rec_dep['Recommended IND'] = 'Recommended'
+
+df_not_rec = df[df['Recommended IND'] == 'Not Recommended'][['Recommended IND', 'Department Name']]
+df_not_rec_dep = df_not_rec['Department Name'].value_counts().rename_axis('Stage').reset_index(name='Counts')
+df_not_rec_dep['Recommended IND'] = 'Not Recommended'
+
+dff = pd.concat([df_rec_dep, df_not_rec_dep], axis=0)
+department = px.funnel(dff, x='Counts', y='Stage', color='Recommended IND',
+                       height=300, title='Recommended IND by department Name',
+                       category_orders={'Recommended IND': ['Recommended', 'Not Recommended']},
+                       color_discrete_sequence=['#DB6574', '#03DAC5'],
+                       )
+department.update_traces(textposition='auto', textfont=dict(color='#fff'))
+department.update_layout(autosize=True,
+                         margin=dict(t=110, b=50, l=70, r=40),
+                         xaxis_title=' ', yaxis_title=" ",
+                         plot_bgcolor='#2d3035', paper_bgcolor='#2d3035',
+                         title_font=dict(size=25, color='#a5a7ab', family="Muli, sans-serif"),
+                         font=dict(color='#8a8d93'),
+                         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1)
+                        )
